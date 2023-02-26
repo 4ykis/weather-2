@@ -60,7 +60,7 @@ export default {
             } else {
                 img = 'clearsky'
             }
-            this.$refs.weather.style.backgroundImage = `url('src/assets/image/${img}.jpg')`;
+            this.$refs.weather.style.backgroundImage = `url('/assets/image/${img}.jpg')`;
             this.showPreloader = false;
         },
         async setCity(city) {

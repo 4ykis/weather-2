@@ -4,7 +4,7 @@ import { getSavedCity, saveCity, getUserCity } from '@/helpers/helpers.js'
 const Store = createStore({
     state: {
         savedWeatherBlock: getSavedCity(),
-        weatherBlockData: [await getUserCity()],
+        weatherBlockData: [],
         userLocationData: { name: "Lviv", lat: "49.8383", lon: "24.0232" },
     },
     mutations: {
@@ -34,9 +34,16 @@ const Store = createStore({
                 state.savedWeatherBlock.push(city);
             }
             saveCity(state.savedWeatherBlock);
+        },
+        addUserLocation(state, city) {
+            state.userLocationData = city;
+            state.weatherBlockData.push(city);
         }
     },
     actions: {
+        addUserLocation(context, data) {
+            context.commit('addUserLocation', data);
+        },
         addWeatherBlock(context) {
             context.commit('addWeatherBlock');
         },
