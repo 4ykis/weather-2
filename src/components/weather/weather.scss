@@ -1,0 +1,23 @@
+@import "@/assets/styles/base";
+
+.weather {
+    background-size: cover;
+    border-radius: 20px;
+    box-shadow: 0 1px 8px 0px rgba($white, 0.5);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.weather-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    
+    @include media(lg) {
+        align-items: stretch;
+        flex-direction: row;
+    }
+}

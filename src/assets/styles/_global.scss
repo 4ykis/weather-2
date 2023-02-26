@@ -1,0 +1,57 @@
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 100%;
+
+    @include media(md) {
+        width: 770px;
+        padding: 0 15px;
+    }
+
+    @include media(lg) {
+        width: 970px;
+    }
+
+    @include media(xl) {
+        width: 1200px;
+        padding: 0 20px;
+    }
+}
+
+.btn {
+    background-color: rgba($black, 0.4);
+    backdrop-filter: blur(5px);
+    border: 1px solid $clr-secondary;
+    border-radius: 10px;
+    color: $clr-secondary;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    padding: 0 30px;
+    font-size: $font-18;
+    transition: 0.3s;
+
+    &:hover {
+        border: 1px solid $clr-main;
+        color: $clr-main;
+    }
+}
+
+.btn-w-icon {
+    @extend .btn;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.btn-clear {
+    background: transparent;    
+    backdrop-filter: none;
+    border: none;
+
+    &:hover {
+        border: none;
+    }
+}

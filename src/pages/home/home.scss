@@ -1,0 +1,11 @@
+@import "@/assets/styles/base";
+
+body {
+    background-color: $clr-background;
+    color: $white;
+    font-family: "Roboto", sans-serif;
+}
+
+.page {
+    padding-bottom: 30px;
+}

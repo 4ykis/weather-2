@@ -1,0 +1,233 @@
+@import "@/assets/styles/base";
+
+.weather_block {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 0 0 5px 1px rgba($black, 0.5);
+    background: rgba($black, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 10px 10px 20px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+
+    @include media(sm) {
+        flex-direction: row;
+    }
+
+    @include media(lg) {
+        width: 29%;
+        margin-bottom: 0;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    @include media(xl) {
+        width: 24%;
+    }
+
+    &-top {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+        
+        @include media(lg) {
+            flex-basis: auto;
+        }
+    }
+
+    &-middle {
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        display: flex;
+
+        @include media(sm) {
+            flex-direction: row;
+        }
+
+        @include media(lg) {
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+    }
+
+    &-bottom {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        @include media(sm) {
+            align-items: flex-end;
+            flex-direction: column-reverse;
+        }
+
+        @include media(lg) {
+            flex-direction: column;
+        }
+    }
+
+    &-header {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-title {
+        font-size: $font-32;
+        margin: 0;
+    }
+
+    &-temp {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 20px;
+
+        @include media(lg) {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    &-temp_inner {
+        flex-grow: 1;
+    }
+
+    &-temp_title {
+        font-size: $font-44;
+        margin: 0;
+        text-align: center;
+
+        span {
+            font-size: $font-24;
+        }
+    }
+
+    &-temp_subtitle {
+        font-size: $font-14;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    &-sun {
+        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &-sun_icon {
+        color: $white;
+        width: 60px;
+
+        @include media(lg) {
+            width: 100px;
+        }
+    }
+
+    &-sunrise,
+    &-sunset {
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+    &-additional {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+    }
+
+    &-additional_block {
+        flex-basis: 33%;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        font-size: $font-14;
+    }
+
+    &-additional_title {
+        margin-bottom: 10px;
+    }
+
+    &-additional_val {
+        font-size: $font-20;
+
+        span {
+            font-size: $font-12;
+        }
+    }
+
+    &-toggle {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        right: 0;
+        top: 0;
+
+        @include media(sm) {
+            margin-bottom: 20px;
+        }
+
+        @include media(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    &-toggle_inner {
+        cursor: pointer;
+        border-radius: 15px;
+        min-width: 60px;
+        margin-left: 20px;
+        height: 30px;
+        border: 1px solid $clr-secondary;
+        background-color: $clr-background-light;
+        transition: 0.5s;
+        position: relative;
+
+        @include media(lg) {
+            height: 40px;
+            margin-left:20px;
+            border-radius: 20px;
+            min-width: 100px;
+        }
+
+        &::after {
+            content: attr(title);
+            width: calc(50% - 3px);
+            text-align: center;
+            font-size: $font-18;
+            color: $black;
+            line-height: 22px;
+            height: 22px;
+            background: $clr-secondary;
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            border-radius: 16px;
+            transition: 0.5s;
+
+            @include media(md) {}
+
+            @include media(lg) {
+                font-size: $font-24;
+                line-height: 32px;
+                height: 32px;
+            }
+        }
+
+        &:hover {
+            border: 1px solid $clr-main;
+            &::after {
+                background: $clr-main;
+            }
+        }
+        
+
+        &.active:after {
+            transform: translate(100%,0);
+        }
+    }
+}

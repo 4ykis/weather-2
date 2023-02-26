@@ -1,0 +1,76 @@
+@import "@/assets/styles/base";
+
+.weather_header {
+    position: relative;
+    box-shadow: 0 0 5px 1px rgba($black, 0.5);
+    border-radius: 5px;
+    background: rgba($black, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+
+    &-search {
+        position: relative;
+        flex-grow: 1;
+    }
+
+    &-list {
+        background-color: $clr-background;
+        box-shadow: 0 1px 10px 1px rgba($black, 0.5);
+        list-style: none;
+        position: absolute;
+        max-height: 200px;
+        overflow: auto;
+        top: 100%;
+        margin: 0;
+        left: 0;
+        padding: 5px;
+        width: 100%;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+           
+        &::-webkit-scrollbar-thumb {
+            background-color: $clr-gray;
+            // outline: 1px solid slategrey;
+        }
+    }
+
+    &-item {
+        cursor: pointer;
+        font-size: $font-18;
+        line-height: $font-28;
+        width: 100%;
+        transition: 0.5s;
+        color: $white;
+
+        &:hover {
+            color: $clr-secondary;
+        }
+    }
+
+    &-btn {
+        margin-left: 20px;
+        min-width: 40px;
+
+        @include media(md) {
+            margin-left: 50px;
+        }
+    }
+
+    &-input {
+        background-color: transparent;
+        color: $white;
+        border: none;
+        border-bottom: 1px solid $white;
+        font-size: $font-20;
+        line-height: 30px;
+        padding: 7px 5px 2px;
+        width: 100%;
+    }
+}
